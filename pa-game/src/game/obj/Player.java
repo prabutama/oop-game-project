@@ -30,7 +30,7 @@ public class Player {
     private final Image image_speed;
     private boolean speedUp;
 
-    public void changeLoaction(double x, double y){
+    public void changeLocation(double x, double y){
         this.x = x;
         this.y = y;
     }
@@ -88,5 +88,4 @@ public class Player {
             speed = 0.003f;
         }
     }
-
 }
