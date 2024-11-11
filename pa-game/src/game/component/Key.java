@@ -1,21 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package game.component;
 
-/**
- *
- * @author prabutama
- */
 public class Key {
 
-    public boolean isKey_righ() {
-        return key_righ;
+    public boolean isKey_enter() {
+        return key_enter;
     }
 
-    public void setKey_righ(boolean key_righ) {
-        this.key_righ = key_righ;
+    public void setKey_enter(boolean key_enter) {
+        this.key_enter = key_enter;
+    }
+
+    public boolean isKey_right() {
+        return key_right;
+    }
+
+    public void setKey_right(boolean key_right) {
+        this.key_right = key_right;
     }
 
     public boolean isKey_left() {
@@ -34,6 +34,14 @@ public class Key {
         this.key_space = key_space;
     }
 
+    public boolean isKey_j() {
+        return key_j;
+    }
+
+    public void setKey_j(boolean key_j) {
+        this.key_j = key_j;
+    }
+
     public boolean isKey_k() {
         return key_k;
     }
@@ -42,17 +50,10 @@ public class Key {
         this.key_k = key_k;
     }
 
-    public boolean isKey_j() {
-        return key_j;
-    }
-
-    public void setKey_j(boolean key_j) {
-        this.key_j = key_j;
-    }
-    
-    private boolean key_righ;
+    private boolean key_right;
     private boolean key_left;
     private boolean key_space;
-    private boolean key_k;
     private boolean key_j;
+    private boolean key_k;
+    private boolean key_enter;
 }

@@ -9,7 +9,7 @@ package game.obj;
  * @author maula
  */
 public class ModelBoom {
-    
+
     public double getSize() {
         return size;
     }
@@ -25,15 +25,15 @@ public class ModelBoom {
     public void setAngle(float angle) {
         this.angle = angle;
     }
-    
+
     public ModelBoom(double size, float angle) {
         this.size = size;
         this.angle = angle;
     }
-    
+
     public ModelBoom() {
     }
-    
+
     private double size;
     private float angle;
 }

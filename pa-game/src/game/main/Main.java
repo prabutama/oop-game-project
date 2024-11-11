@@ -14,14 +14,15 @@ import javax.swing.JFrame;
  *
  * @author prabutama
  */
+
 public class Main extends JFrame {
 
     public Main() {
         init();
     }
 
-    public void init() {
-        setTitle("Game Peoject 4");
+    private void init() {
+        setTitle("Java 2D Game");
         setSize(1366, 768);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -42,3 +43,4 @@ public class Main extends JFrame {
         main.setVisible(true);
     }
 }
+

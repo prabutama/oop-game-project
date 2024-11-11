@@ -1,10 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package game.obj;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
@@ -14,13 +9,10 @@ import java.awt.geom.Area;
 import java.awt.geom.Path2D;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author maula
- */
-public class Rocket {
+public class Rocket extends HpRender {
 
     public Rocket() {
+        super(new HP(20, 20));
         this.image = new ImageIcon(getClass().getResource("/game/image/rocket.png")).getImage();
         Path2D p = new Path2D.Double();
         p.moveTo(0, ROCKET_SIZE / 2);
@@ -66,12 +58,13 @@ public class Rocket {
         tran.rotate(Math.toRadians(angle + 45), ROCKET_SIZE / 2, ROCKET_SIZE / 2);
         g2.drawImage(image, tran, null);
         Shape shap = getShape();
+        hpRender(g2, shap, y);
         g2.setTransform(oldTransform);
 
-        // Test
-        g2.setColor(new Color(36, 214, 63));
-        g2.draw(shap);
-        g2.draw(shap.getBounds2D());
+        //  Test
+        // g2.setColor(new Color(36, 214, 63));
+        // g2.draw(shap);
+        // g2.draw(shap.getBounds2D());
     }
 
     public double getX() {
@@ -82,7 +75,7 @@ public class Rocket {
         return y;
     }
 
-    public double getAngle() {
+    public float getAngle() {
         return angle;
     }
 
@@ -101,4 +94,5 @@ public class Rocket {
             return true;
         }
     }
+
 }

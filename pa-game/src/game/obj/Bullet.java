@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package game.obj;
 
 import java.awt.Color;
@@ -11,10 +7,6 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.Area;
 import java.awt.geom.Ellipse2D;
 
-/**
- *
- * @author prabutama
- */
 public class Bullet {
 
     private double x;
@@ -80,4 +72,5 @@ public class Bullet {
     public double getCenterY() {
         return y + size / 2;
     }
+
 }
