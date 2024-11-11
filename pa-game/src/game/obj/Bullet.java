@@ -36,7 +36,7 @@ public class Bullet {
         shape = new Ellipse2D.Double(0, 0, size, size);
     }
 
-   public void update() {
+    public void update() {
         x += Math.cos(Math.toRadians(angle)) * speed;
         y += Math.sin(Math.toRadians(angle)) * speed;
     }
@@ -60,7 +60,7 @@ public class Bullet {
     public Shape getShape() {
         return new Area(new Ellipse2D.Double(x, y, size, size));
     }
-    
+
     public double getX() {
         return x;
     }

@@ -56,7 +56,7 @@ public class PanelGame extends JComponent {
         g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
         thread = new Thread(new Runnable() {
             @Override
-            public void run() {
+            public void run() { 
                 while (start) {
                     long startTime = System.nanoTime();
                     drawBackgorund();
@@ -77,29 +77,29 @@ public class PanelGame extends JComponent {
         thread.start();
     }
 
-    private void addRocket(){
+    private void addRocket() {
         Random ran = new Random();
-        int locationY = ran.nextInt(height-50)+25;
+        int locationY = ran.nextInt(height - 50) + 25;
         Rocket rocket = new Rocket();
         rocket.changeLocation(0, locationY);
         rocket.changeAngle(0);
         rockets.add(rocket);
-        int locationY2 = ran.nextInt(height-50)+25;
+        int locationY2 = ran.nextInt(height - 50) + 25;
         Rocket rocket2 = new Rocket();
         rocket2.changeLocation(width, locationY2);
         rocket2.changeAngle(180);
         rockets.add(rocket2);
     }
-    
+
     private void initObjectGame() {
         player = new Player();
         player.changeLocation(100, 200);
         rockets = new ArrayList<>();
         boomEffects = new ArrayList<>();
-        new Thread(new Runnable(){
+        new Thread(new Runnable() {
             @Override
             public void run() {
-                while (start){
+                while (start) {
                     addRocket();
                     sleep(3000);
                 }
@@ -175,13 +175,13 @@ public class PanelGame extends JComponent {
                     }
                     player.update();
                     player.changeAngle(angle);
-                    for(int i = 0; i < rockets.size();i++) {
+                    for (int i = 0; i < rockets.size(); i++) {
                         Rocket rocket = rockets.get(i);
-                        if(rocket != null){
-                           rocket.update();
-                           if(!rocket.check(width, height)) {
-                               rockets.remove(rocket);
-                           }
+                        if (rocket != null) {
+                            rocket.update();
+                            if (!rocket.check(width, height)) {
+                                rockets.remove(rocket);
+                            }
                         }
                     }
                     sleep(5);
@@ -209,7 +209,7 @@ public class PanelGame extends JComponent {
                         }
                     }
                     for (int i = 0; i < boomEffects.size(); i++) {
-                        Effect boomEffect =  boomEffects.get(i);
+                        Effect boomEffect = boomEffects.get(i);
                         if (boomEffect != null) {
                             boomEffect.update();
                             if (!boomEffect.check()) {
@@ -226,30 +226,30 @@ public class PanelGame extends JComponent {
     }
 
     private void checkBullets(Bullet bullet) {
-        for(int i = 0; i < rockets.size(); i++){
+        for (int i = 0; i < rockets.size(); i++) {
             Rocket rocket = rockets.get(i);
-            if (rocket != null){
+            if (rocket != null) {
                 Area area = new Area(bullet.getShape());
                 area.intersect(rocket.getShape());
                 if (!area.isEmpty()) {
                     boomEffects.add(new Effect(bullet.getCenterX(), bullet.getCenterY(), 3, 5, 60, 0.5f, new Color(230, 207, 105)));
                     if (true) { // For Test HP
-                         rockets.remove(rocket);
-                         double x = rocket.getX() + Rocket.ROCKET_SIZE / 2;
-                         double y = rocket.getY() + Rocket.ROCKET_SIZE / 2;
-                         boomEffects.add(new Effect(x, y, 5, 5, 75, 0.05f, new Color(32, 178, 169)));
-                         boomEffects.add(new Effect(x, y, 5, 5, 75, 0.1f, new Color(32, 178, 169)));
-                         boomEffects.add(new Effect(x, y, 10, 10, 100, 0.3f, new Color(230, 207, 105)));
-                         boomEffects.add(new Effect(x, y, 10, 5, 100, 0.5f, new Color(255, 70, 70)));
-                         boomEffects.add(new Effect(x, y, 10, 5, 150, 0.2f, new Color(255, 225, 255)));
+                        rockets.remove(rocket);
+                        double x = rocket.getX() + Rocket.ROCKET_SIZE / 2;
+                        double y = rocket.getY() + Rocket.ROCKET_SIZE / 2;
+                        boomEffects.add(new Effect(x, y, 5, 5, 75, 0.05f, new Color(32, 178, 169)));
+                        boomEffects.add(new Effect(x, y, 5, 5, 75, 0.1f, new Color(32, 178, 169)));
+                        boomEffects.add(new Effect(x, y, 10, 10, 100, 0.3f, new Color(230, 207, 105)));
+                        boomEffects.add(new Effect(x, y, 10, 5, 100, 0.5f, new Color(255, 70, 70)));
+                        boomEffects.add(new Effect(x, y, 10, 5, 150, 0.2f, new Color(255, 225, 255)));
                     }
-                    
+
                     bullets.remove(bullet);
                 }
             }
         }
     }
-    
+
     private void drawBackgorund() {
         g2.setColor(new Color(30, 30, 30));
         g2.fillRect(0, 0, width, height);
